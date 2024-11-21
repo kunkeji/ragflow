@@ -146,15 +146,9 @@ class ESConnection(DocStoreConnection):
                 if "minimum_should_match" in m.extra_options:
                     minimum_should_match = str(int(m.extra_options["minimum_should_match"] * 100)) + "%"
                 bqry.must.append(Q("query_string", fields=m.fields,
-<<<<<<< HEAD
-                                type="best_fields", query=m.matching_text,
-                                minimum_should_match=minimum_should_match,
-                                boost=1))
-=======
                                    type="best_fields", query=m.matching_text,
                                    minimum_should_match=minimum_should_match,
                                    boost=1))
->>>>>>> 85dd9fde43a0976dce030e11a5c87a21f974c0dc
                 bqry.boost = 1.0 - vector_similarity_weight
 
             elif isinstance(m, MatchDenseExpr):
@@ -334,11 +328,7 @@ class ESConnection(DocStoreConnection):
                 else:
                     raise Exception("Condition value must be int, str or list.")
         logging.debug("ESConnection.delete query: " + json.dumps(qry.to_dict()))
-<<<<<<< HEAD
-        for _ in range(10):
-=======
         for _ in range(ATTEMPT_TIME):
->>>>>>> 85dd9fde43a0976dce030e11a5c87a21f974c0dc
             try:
                 res = self.es.delete_by_query(
                     index=indexName,
