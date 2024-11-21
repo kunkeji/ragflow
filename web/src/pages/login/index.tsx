@@ -3,10 +3,9 @@ import { rsaPsw } from '@/utils';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Icon, useNavigate } from 'umi';
+import { useNavigate } from 'umi';
 import RightPanel from './right-panel';
 
-import { Domain } from '@/constants/common';
 import styles from './index.less';
 
 const Login = () => {
@@ -59,10 +58,10 @@ const Login = () => {
     // wrapperCol: { span: 8 },
   };
 
-  const toGoogle = () => {
-    window.location.href =
-      'https://github.com/login/oauth/authorize?scope=user:email&client_id=302129228f0d96055bee';
-  };
+  // const toGoogle = () => {
+  //   window.location.href =
+  //     'https://github.com/login/oauth/authorize?scope=user:email&client_id=302129228f0d96055bee';
+  // };
 
   return (
     <div className={styles.loginPage}>
@@ -161,7 +160,7 @@ const Login = () => {
                     Sign in with Google
                   </div>
                 </Button> */}
-                {location.host === Domain && (
+                {/* {location.host === Domain && (
                   <Button
                     block
                     size="large"
@@ -176,7 +175,7 @@ const Login = () => {
                       Sign in with Github
                     </div>
                   </Button>
-                )}
+                )} */}
               </>
             )}
           </Form>

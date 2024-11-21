@@ -50,10 +50,9 @@ export default {
       nicknamePlaceholder: '请输入名称',
       register: '创建账户',
       continue: '继续',
-      title: '开始构建您的智能助手',
-      description:
-        '免费注册以探索顶级 RAG 技术。 创建知识库和人工智能来增强您的业务',
-      review: '来自 500 多条评论',
+      title: '构建你的专属知识库',
+      description: '知识库是人工智能应用到实际的基础',
+      review: '来自多家公司的评价',
     },
     header: {
       knowledgeBase: '知识库',

@@ -7,11 +7,9 @@ import { useNavigateWithFromState } from '@/hooks/route-hook';
 import {
   ChevronDown,
   Cpu,
-  Github,
   Library,
   MessageSquareText,
   Search,
-  Star,
   Zap,
 } from 'lucide-react';
 import { useCallback, useMemo, useState } from 'react';
@@ -72,11 +70,11 @@ export function HomeHeader() {
           className="w-[100] h-[100] mr-[12]"
           onClick={handleLogoClick}
         />
-        <Button variant="secondary">
+        {/* <Button variant="secondary">
           <Github />
           21.5k stars
           <Star />
-        </Button>
+        </Button> */}
       </div>
       <div>
         <Segmented
