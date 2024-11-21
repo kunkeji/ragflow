@@ -440,7 +440,7 @@ class ComponentBase(ABC):
         setattr(self._param, self._param.output_var_name, None)
         self._param.inputs = []
 
-    def set_output(self, v: pd.DataFrame):
+    def set_output(self, v: partial | pd.DataFrame):
         setattr(self._param, self._param.output_var_name, v)
 
     def get_input(self):
@@ -454,7 +454,7 @@ class ComponentBase(ABC):
             outs = []
             for q in self._param.query:
                 if q["component_id"]:
-                    if q["component_id"].split("@")[0].lower().find("begin") > 0:
+                    if q["component_id"].split("@")[0].lower().find("begin") >= 0:
                         cpn_id, key = q["component_id"].split("@")
                         for p in self._canvas.get_component(cpn_id)["obj"]._param.query:
                             if p["key"] == key:
