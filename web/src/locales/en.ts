@@ -439,6 +439,7 @@ The above is the content you need to summarize.`,
       multiTurnTip:
         'In multi-round conversations, the query to the knowledge base is optimized. The large model will be called to consume additional tokens.',
       howUseId: 'How to use chat ID?',
+      description: 'Description of assistant',
     },
     setting: {
       profile: 'Profile',
@@ -1037,6 +1038,9 @@ The above is the content you need to summarize.`,
       optional: 'Optional',
       pasteFileLink: 'Paste file link',
       testRun: 'Test Run',
+      template: 'Template',
+      templateDescription:
+        'This component is used for typesetting the outputs of various components.',
     },
     footer: {
       profile: 'All rights reserved @ React',
