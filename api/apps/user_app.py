@@ -105,13 +105,13 @@ def login():
         user.update_time = (current_timestamp(),)
         user.update_date = (datetime_format(datetime.now()),)
         user.save()
-        msg = "Welcome back!"
+        msg = "欢迎回来"
         return construct_response(data=response_data, auth=user.get_id(), message=msg)
     else:
         return get_json_result(
             data=False,
             code=settings.RetCode.AUTHENTICATION_ERROR,
-            message="Email and password do not match!",
+            message="用户名或密码错误！",
         )
 
 
