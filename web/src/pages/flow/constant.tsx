@@ -8,7 +8,6 @@ import { ReactComponent as ConcentratorIcon } from '@/assets/svg/concentrator.sv
 import { ReactComponent as CrawlerIcon } from '@/assets/svg/crawler.svg';
 import { ReactComponent as DeepLIcon } from '@/assets/svg/deepl.svg';
 import { ReactComponent as DuckIcon } from '@/assets/svg/duck.svg';
-import { ReactComponent as EmailIcon } from '@/assets/svg/email.svg';
 import { ReactComponent as ExeSqlIcon } from '@/assets/svg/exesql.svg';
 import { ReactComponent as GithubIcon } from '@/assets/svg/github.svg';
 import { ReactComponent as GoogleScholarIcon } from '@/assets/svg/google-scholar.svg';
@@ -25,8 +24,6 @@ import { ReactComponent as TuShareIcon } from '@/assets/svg/tushare.svg';
 import { ReactComponent as WenCaiIcon } from '@/assets/svg/wencai.svg';
 import { ReactComponent as WikipediaIcon } from '@/assets/svg/wikipedia.svg';
 import { ReactComponent as YahooFinanceIcon } from '@/assets/svg/yahoo-finance.svg';
-
-// 邮件功能
 
 import { variableEnabledFieldMap } from '@/constants/chat';
 import i18n from '@/locales/config';
@@ -90,7 +87,6 @@ export enum Operator {
   Crawler = 'Crawler',
   Invoke = 'Invoke',
   Template = 'Template',
-  Email = 'Email',
 }
 
 export const CommonOperatorList = Object.values(Operator).filter(
@@ -131,7 +127,6 @@ export const operatorIconMap = {
   [Operator.Crawler]: CrawlerIcon,
   [Operator.Invoke]: InvokeIcon,
   [Operator.Template]: TemplateIcon,
-  [Operator.Email]: EmailIcon,
 };
 
 export const operatorMap: Record<
@@ -264,7 +259,6 @@ export const operatorMap: Record<
   [Operator.Template]: {
     backgroundColor: '#dee0e2',
   },
-  [Operator.Email]: { backgroundColor: '#e6f7ff' },
 };
 
 export const componentMenuList = [
@@ -363,9 +357,6 @@ export const componentMenuList = [
   },
   {
     name: Operator.Invoke,
-  },
-  {
-    name: Operator.Email,
   },
 ];
 
@@ -589,18 +580,6 @@ export const initialTemplateValues = {
   parameters: [],
 };
 
-export const initialEmailValues = {
-  smtp_server: '',
-  smtp_port: 587,
-  email: '',
-  password: '',
-  sender_name: '',
-  to_email: '',
-  cc_email: '',
-  subject: '',
-  content: '',
-};
-
 export const CategorizeAnchorPointPositions = [
   { top: 1, right: 34 },
   { top: 8, right: 18 },
@@ -681,7 +660,6 @@ export const RestrictedUpstreamMap = {
   [Operator.Note]: [],
   [Operator.Invoke]: [Operator.Begin],
   [Operator.Template]: [Operator.Begin, Operator.Relevant],
-  [Operator.Email]: [Operator.Begin],
 };
 
 export const NodeMap = {
@@ -718,7 +696,6 @@ export const NodeMap = {
   [Operator.Crawler]: 'ragNode',
   [Operator.Invoke]: 'invokeNode',
   [Operator.Template]: 'templateNode',
-  [Operator.Email]: 'emailNode',
 };
 
 export const LanguageOptions = [

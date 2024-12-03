@@ -25,7 +25,6 @@ import styles from './index.less';
 import { RagNode } from './node';
 import { BeginNode } from './node/begin-node';
 import { CategorizeNode } from './node/categorize-node';
-import { EmailNode } from './node/email-node';
 import { GenerateNode } from './node/generate-node';
 import { InvokeNode } from './node/invoke-node';
 import { KeywordNode } from './node/keyword-node';
@@ -53,7 +52,6 @@ const nodeTypes = {
   keywordNode: KeywordNode,
   invokeNode: InvokeNode,
   templateNode: TemplateNode,
-  emailNode: EmailNode,
 };
 
 const edgeTypes = {
