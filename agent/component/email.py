@@ -33,27 +33,37 @@ class Email(ComponentBase, ABC):
     component_name = "Email"
     def _validate_email_data(self, email_data):
         if not isinstance(email_data, dict):
-            return False
-        # 检查必要字段
-        if "to_email" not in email_data:
-            return False
-            
+            return False          
         # 验证邮箱格式
         email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         if not re.match(email_pattern, email_data["to_email"]):
             return False
-            
         return True
     
     def _run(self, history, **kwargs):
         # 获取上游组件输出并解析JSON
         ans = self.get_input()
         content = ans.get("content", "")[0]
+        # 转成字符串
+        content = str(content)
         # 对content内容进行清洗，仅提取JSON字符串
-        if not content:
-            return Email.be_output("101")  # 没有内容可发送
-        success = False
         try:
+            # 查找第一个 { 和最后一个 } 的位置
+            start = content.find('{')
+            end = content.rfind('}')
+            
+            if start != -1 and end != -1:
+                content = content[start:end+1]
+                # 先处理JSON字符串中的转义字符
+                content = content.replace('\\"', '"').replace("\\'", "'")
+                # 处理HTML内容中的行尾转义符
+                content = content.replace('\\                 ', '')
+                content = content.replace('\\\n', '')
+                content = content.replace('\\n', '\n')
+                logging.info(f"清洗后的content: {content}")
+            else:
+                return Email.be_output("101")  # 没有找到有效的JSON
+                
             email_data = json.loads(content)
             
             if not email_data:
