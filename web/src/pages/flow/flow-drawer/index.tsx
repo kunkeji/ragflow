@@ -40,6 +40,7 @@ import WikipediaForm from '../form/wikipedia-form';
 import YahooFinanceForm from '../form/yahoo-finance-form';
 import { useHandleFormValuesChange, useHandleNodeNameChange } from '../hooks';
 import OperatorIcon from '../operator-icon';
+
 import { getDrawerWidth } from '../utils';
 import styles from './index.less';
 
