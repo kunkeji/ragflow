@@ -270,3 +270,36 @@
     transform: translateY(0);
   }
 }
+
+.messagePassNodeContainer {
+  padding: 8px;
+  font-size: 12px;
+
+  .messagePassConfig {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+
+    .configItem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .configLabel {
+        color: #666;
+        width: 45px;
+        flex-shrink: 0;
+      }
+
+      .configValue {
+        color: #333;
+        word-break: break-all;
+      }
+    }
+  }
+}

@@ -16,6 +16,7 @@ import { ReactComponent as GoogleIcon } from '@/assets/svg/google.svg';
 import { ReactComponent as InvokeIcon } from '@/assets/svg/invoke-ai.svg';
 import { ReactComponent as Jin10Icon } from '@/assets/svg/jin10.svg';
 import { ReactComponent as KeywordIcon } from '@/assets/svg/keyword.svg';
+import { ReactComponent as MessageIcon } from '@/assets/svg/message.svg';
 import { ReactComponent as NoteIcon } from '@/assets/svg/note.svg';
 import { ReactComponent as PubMedIcon } from '@/assets/svg/pubmed.svg';
 import { ReactComponent as QWeatherIcon } from '@/assets/svg/qweather.svg';
@@ -91,6 +92,7 @@ export enum Operator {
   Invoke = 'Invoke',
   Template = 'Template',
   Email = 'Email',
+  MessagePass = 'MessagePass',
 }
 
 export const CommonOperatorList = Object.values(Operator).filter(
@@ -132,6 +134,7 @@ export const operatorIconMap = {
   [Operator.Invoke]: InvokeIcon,
   [Operator.Template]: TemplateIcon,
   [Operator.Email]: EmailIcon,
+  [Operator.MessagePass]: MessageIcon,
 };
 
 export const operatorMap: Record<
@@ -265,6 +268,7 @@ export const operatorMap: Record<
     backgroundColor: '#dee0e2',
   },
   [Operator.Email]: { backgroundColor: '#e6f7ff' },
+  [Operator.MessagePass]: { backgroundColor: '#f0f5ff' },
 };
 
 export const componentMenuList = [
@@ -366,6 +370,9 @@ export const componentMenuList = [
   },
   {
     name: Operator.Email,
+  },
+  {
+    name: Operator.MessagePass,
   },
 ];
 
@@ -601,6 +608,8 @@ export const initialEmailValues = {
   content: '',
 };
 
+export const initialMessagePassValues = {};
+
 export const CategorizeAnchorPointPositions = [
   { top: 1, right: 34 },
   { top: 8, right: 18 },
@@ -682,6 +691,7 @@ export const RestrictedUpstreamMap = {
   [Operator.Invoke]: [Operator.Begin],
   [Operator.Template]: [Operator.Begin, Operator.Relevant],
   [Operator.Email]: [Operator.Begin],
+  [Operator.MessagePass]: [],
 };
 
 export const NodeMap = {
@@ -719,6 +729,7 @@ export const NodeMap = {
   [Operator.Invoke]: 'invokeNode',
   [Operator.Template]: 'templateNode',
   [Operator.Email]: 'emailNode',
+  [Operator.MessagePass]: 'messagePassNode',
 };
 
 export const LanguageOptions = [
@@ -2319,14 +2330,6 @@ export const GoogleCountryOptions = [
   {
     country_code: 'pt',
     country_name: 'Portugal',
-  },
-  {
-    country_code: 'pr',
-    country_name: 'Puerto Rico',
-  },
-  {
-    country_code: 'qa',
-    country_name: 'Qatar',
   },
   {
     country_code: 're',

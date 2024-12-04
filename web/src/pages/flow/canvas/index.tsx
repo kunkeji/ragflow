@@ -31,6 +31,7 @@ import { InvokeNode } from './node/invoke-node';
 import { KeywordNode } from './node/keyword-node';
 import { LogicNode } from './node/logic-node';
 import { MessageNode } from './node/message-node';
+import { MessagePassNode } from './node/message-pass-node';
 import NoteNode from './node/note-node';
 import { RelevantNode } from './node/relevant-node';
 import { RetrievalNode } from './node/retrieval-node';
@@ -54,6 +55,7 @@ const nodeTypes = {
   invokeNode: InvokeNode,
   templateNode: TemplateNode,
   emailNode: EmailNode,
+  messagePassNode: MessagePassNode,
 };
 
 const edgeTypes = {

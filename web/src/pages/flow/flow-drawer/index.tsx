@@ -27,6 +27,7 @@ import InvokeForm from '../form/invoke-form';
 import Jin10Form from '../form/jin10-form';
 import KeywordExtractForm from '../form/keyword-extract-form';
 import MessageForm from '../form/message-form';
+import MessagePassForm from '../form/message-pass-form';
 import PubMedForm from '../form/pubmed-form';
 import QWeatherForm from '../form/qweather-form';
 import RelevantForm from '../form/relevant-form';
@@ -83,6 +84,7 @@ const FormMap = {
   [Operator.Note]: () => <></>,
   [Operator.Template]: TemplateForm,
   [Operator.Email]: EmailForm,
+  [Operator.MessagePass]: MessagePassForm,
 };
 
 const EmptyContent = () => <div></div>;

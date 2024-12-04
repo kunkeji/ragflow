@@ -37,7 +37,7 @@ export default {
     login: {
       login: 'Sign in',
       signUp: 'Sign up',
-      loginDescription: 'We’re so excited to see you again!',
+      loginDescription: "We're so excited to see you again!",
       registerDescription: 'Glad to have you on board!',
       emailLabel: 'Email',
       emailPlaceholder: 'Please input email',
@@ -1075,6 +1075,10 @@ When you want to search the given knowledge base at first place, set a higher pa
       ccEmailTip: 'cc_email: CC email (Optional)',
       subjectTip: 'subject: Email subject (Optional)',
       contentTip: 'content: Email content (Optional)',
+      messagePass: 'Message Pass',
+      messagePassDescription: 'Pass upstream message to downstream',
+      messagePassTip:
+        'This component will pass the output from upstream component directly to downstream component',
     },
     footer: {
       profile: 'All rights reserved @ React',

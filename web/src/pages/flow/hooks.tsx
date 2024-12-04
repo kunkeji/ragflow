@@ -53,6 +53,7 @@ import {
   initialInvokeValues,
   initialJin10Values,
   initialKeywordExtractValues,
+  initialMessagePassValues,
   initialMessageValues,
   initialNoteValues,
   initialPubMedValues,
@@ -143,6 +144,7 @@ export const useInitializeOperatorParams = () => {
       [Operator.Invoke]: initialInvokeValues,
       [Operator.Template]: initialTemplateValues,
       [Operator.Email]: initialEmailValues,
+      [Operator.MessagePass]: initialMessagePassValues,
     };
   }, [llmId]);
 
