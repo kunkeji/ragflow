@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@codemirror/lang-javascript": "^6.2.2",
-    "@uiw/codemirror-theme-vscode": "^4.23.6",
-    "@uiw/react-codemirror": "^4.23.6"
-  }
-}
