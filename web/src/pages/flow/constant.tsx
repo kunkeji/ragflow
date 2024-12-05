@@ -26,9 +26,6 @@ import { ReactComponent as TuShareIcon } from '@/assets/svg/tushare.svg';
 import { ReactComponent as WenCaiIcon } from '@/assets/svg/wencai.svg';
 import { ReactComponent as WikipediaIcon } from '@/assets/svg/wikipedia.svg';
 import { ReactComponent as YahooFinanceIcon } from '@/assets/svg/yahoo-finance.svg';
-
-// 邮件功能
-
 import { variableEnabledFieldMap } from '@/constants/chat';
 import i18n from '@/locales/config';
 

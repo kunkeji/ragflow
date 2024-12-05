@@ -1,6 +1,7 @@
 import classNames from 'classnames';
+import { useState } from 'react';
 import { Handle, NodeProps, Position } from 'reactflow';
-import { NodeData } from '../../interface';
+import { IMessagePassForm, NodeData } from '../../interface';
 import { LeftHandleStyle, RightHandleStyle } from './handle-icon';
 import styles from './index.less';
 import NodeHeader from './node-header';
@@ -11,6 +12,9 @@ export function MessagePassNode({
   isConnectable = true,
   selected,
 }: NodeProps<NodeData>) {
+  const [showDetails, setShowDetails] = useState(false);
+  const form = data.form as IMessagePassForm;
+
   return (
     <section
       className={classNames(styles.ragNode, {
@@ -34,14 +38,6 @@ export function MessagePassNode({
         id="b"
       ></Handle>
       <NodeHeader id={id} name={data.name} label={data.label}></NodeHeader>
-      <div className={styles.messagePassNodeContainer}>
-        <div className={styles.messagePassConfig}>
-          <div className={styles.configItem}>
-            <span className={styles.configLabel}>状态:</span>
-            <span className={styles.configValue}>消息传递中</span>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

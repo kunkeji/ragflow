@@ -87,6 +87,11 @@ export interface ISwitchForm {
   no: string;
 }
 
+export interface IMessagePassForm {
+  input_var?: string;
+  code?: string;
+}
+
 export type NodeData = {
   label: string; // operator type
   name: string; // operator name
@@ -96,7 +101,8 @@ export type NodeData = {
     | IRetrievalForm
     | IGenerateForm
     | ICategorizeForm
-    | ISwitchForm;
+    | ISwitchForm
+    | IMessagePassForm;
 };
 
 export type IPosition = { top: number; right: number; idx: number };
@@ -109,3 +115,11 @@ export interface BeginQuery {
   name: string;
   options: (number | string | boolean)[];
 }
+
+export type FormType =
+  | IBeginForm
+  | IRetrievalForm
+  | IGenerateForm
+  | ICategorizeForm
+  | ISwitchForm
+  | IMessagePassForm; // 添加 MessagePass 表单类型

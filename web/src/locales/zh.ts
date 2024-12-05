@@ -493,7 +493,7 @@ export default {
       showMoreModels: '展示更多模型',
       baseUrl: 'Base-Url',
       baseUrlTip:
-        '如果您的 API 密钥来自 OpenAI，请忽略它。 任何其他中间提供商都会提供带有 API 密钥的基本 URL���',
+        '如果您的 API 密钥来自 OpenAI，请忽略它。 任何其他中间提供商都会提供带有 API 密钥的基本 URL',
       modify: '修改',
       systemModelSettings: '系统模型设置',
       chatModel: '聊天模型',
@@ -676,7 +676,7 @@ export default {
       run: '运行',
       save: '保存',
       title: 'ID：',
-      beginDescription: '这是流程开始���地方',
+      beginDescription: '这是流程开始地方',
       answerDescription: `该组件用作机器人与人类之间的接口。它接收用户的输入并显示机器人的计算结果。`,
       retrievalDescription: `此组件用于从知识库中检索相关信息。选择知识库。如果没有检索到任何内容，将返回“空响应。`,
       generateDescription: `此组件用于调用LLM生成文本，请注意提示的设置。`,
@@ -1056,6 +1056,12 @@ export default {
       messagePass: '消息传递',
       messagePassDescription: '将上游消息直接传递给下游',
       messagePassTip: '这个组件会将上游组件的输出直接传递给下游组件',
+      inputVariable: '输入变量名',
+      inputVariablePlaceholder: '请输入变量名',
+      jsCode: 'JavaScript代码',
+      messagePassDescription: '将上游消息处理后传递给下游',
+      messagePassTip:
+        '可以编写JavaScript代码处理数据，如果不需要处理可以不写代码',
     },
     footer: {
       profile: 'All rights reserved @ React',
