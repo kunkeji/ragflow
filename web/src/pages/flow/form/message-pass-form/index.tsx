@@ -3,11 +3,28 @@ import { javascript } from '@codemirror/lang-javascript';
 import { vscodeDark } from '@uiw/codemirror-theme-vscode';
 import CodeMirror from '@uiw/react-codemirror';
 import { Form, Input } from 'antd';
+import parserBabel from 'prettier/parser-babel';
+import { format } from 'prettier/standalone';
 import { IOperatorForm } from '../../interface';
 import DynamicInputVariable from '../components/dynamic-input-variable';
 
 const MessagePassForm = ({ onValuesChange, form, node }: IOperatorForm) => {
   const { t } = useTranslate('flow');
+
+  const initialCode = form?.getFieldValue('code') || '';
+
+  const formatCode = (code: string) => {
+    try {
+      return format(code, {
+        parser: 'babel',
+        plugins: [parserBabel],
+        semi: true,
+        singleQuote: true,
+      });
+    } catch (e) {
+      return code;
+    }
+  };
 
   return (
     <Form
@@ -16,6 +33,10 @@ const MessagePassForm = ({ onValuesChange, form, node }: IOperatorForm) => {
       form={form}
       onValuesChange={onValuesChange}
       layout={'vertical'}
+      initialValues={{
+        input_var: 'input',
+        code: '',
+      }}
     >
       <DynamicInputVariable nodeId={node?.id}></DynamicInputVariable>
 
@@ -31,12 +52,12 @@ const MessagePassForm = ({ onValuesChange, form, node }: IOperatorForm) => {
       {/* 代码编辑器 */}
       <Form.Item label={t('jsCode')} name="code">
         <CodeMirror
-          value={form.getFieldValue('code') || ''}
+          value={initialCode}
           height="200px"
           theme={vscodeDark}
           extensions={[javascript({ jsx: true })]}
           onChange={(value) => {
-            form.setFieldsValue({ code: value });
+            form?.setFieldsValue({ code: value });
           }}
           basicSetup={{
             lineNumbers: true,
@@ -61,6 +82,10 @@ const MessagePassForm = ({ onValuesChange, form, node }: IOperatorForm) => {
             foldKeymap: true,
             completionKeymap: true,
             lintKeymap: true,
+            lint: true,
+            tabSize: 2,
+            indentUnit: 2,
+            styleActiveLine: true,
           }}
         />
       </Form.Item>
@@ -71,12 +96,8 @@ const MessagePassForm = ({ onValuesChange, form, node }: IOperatorForm) => {
         <div>{t('messagePassTip')}</div>
         <pre style={{ background: '#f5f5f5', padding: 12, borderRadius: 4 }}>
           {`// 示例代码:
-const data = JSON.parse(input);
-// 处理数据
-return JSON.stringify(data);
-
-// 如果不需要处理，可以不写任何代码
-// 组件会直接传递上游内容`}
+return input+"世界"
+//如果你输入的是你好，则会输出你好世界`}
         </pre>
       </div>
     </Form>

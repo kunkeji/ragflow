@@ -1053,15 +1053,29 @@ export default {
       ccEmailTip: 'cc_email: 抄送邮箱(可选)',
       subjectTip: 'subject: 邮件主题(可选)',
       contentTip: 'content: 邮件内容(可选)',
-      messagePass: '消息传递',
-      messagePassDescription: '将上游消息直接传递给下游',
-      messagePassTip: '这个组件会将上游组件的输出直接传递给下游组件',
-      inputVariable: '输入变量名',
-      inputVariablePlaceholder: '请输入变量名',
-      jsCode: 'JavaScript代码',
+      messagePass: '消息处理',
       messagePassDescription: '将上游消息处理后传递给下游',
       messagePassTip:
         '可以编写JavaScript代码处理数据，如果不需要处理可以不写代码',
+      inputVariable: '输入变量名',
+      inputVariablePlaceholder: '请输入变量名',
+      jsCode: 'JavaScript代码',
+      messagePassTip:
+        '可以编写JavaScript代码处理数据，如果不需要处理可以不写代码',
+      messagePassErrorCodes: {
+        '105': '发生意外错误',
+        '106': 'JavaScript执行错误',
+      },
+      messagePassExample: `// 示例代码:
+// 解析JSON
+const data = JSON.parse(input);
+// 处理数据
+data.newField = "处理后的数据";
+// 返回处理后的数据
+return JSON.stringify(data);
+
+// 如果不需要处理，可以不写任何代码
+// 组件会直接传递上游内容`,
     },
     footer: {
       profile: 'All rights reserved @ React',

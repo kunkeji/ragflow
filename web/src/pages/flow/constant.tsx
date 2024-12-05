@@ -303,6 +303,9 @@ export const componentMenuList = [
     name: Operator.Template,
   },
   {
+    name: Operator.MessagePass,
+  },
+  {
     name: Operator.Note,
   },
   {
@@ -367,9 +370,6 @@ export const componentMenuList = [
   },
   {
     name: Operator.Email,
-  },
-  {
-    name: Operator.MessagePass,
   },
 ];
 

@@ -38,6 +38,27 @@ export function MessagePassNode({
         id="b"
       ></Handle>
       <NodeHeader id={id} name={data.name} label={data.label}></NodeHeader>
+      {/* <div className={styles.messagePassNodeContainer}>
+        <div 
+          className={styles.messagePassConfig}
+          onClick={() => setShowDetails(!showDetails)}
+        >
+          <div className={styles.configItem}>
+            <span className={styles.configLabel}>变量:</span>
+            <span className={styles.configValue}>{form?.input_var || 'input'}</span>
+          </div>
+          <div className={styles.expandIcon}>{showDetails ? '▼' : '▶'}</div>
+        </div>
+
+        {showDetails && form?.code && (
+          <div className={styles.codePreview}>
+            <div className={styles.codeTitle}>代码预览:</div>
+            <pre className={styles.codeContent}>
+              {form.code}
+            </pre>
+          </div>
+        )}
+      </div> */}
     </section>
   );
 }
