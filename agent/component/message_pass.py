@@ -1,6 +1,7 @@
 from abc import ABC
 import logging
 import json
+import execjs  # 用于执行JavaScript代码
 from agent.component.base import ComponentBase, ComponentParamBase
 
 class MessagePassParam(ComponentParamBase):
@@ -30,13 +31,25 @@ class MessagePass(ComponentBase, ABC):
             if not self._param.code or self._param.code.strip() == "":
                 return MessagePass.be_output(content)
                 
-            # 构造返回数据
-            result_data = {
-                self._param.input_var: content,  # 将上游内容赋值给指定变量名
-                "code": self._param.code,        # 保存代码内容用于显示
-            }
+            # 构造JavaScript运行环境
+            js_context = f"""
+                function execute() {{
+                    const {self._param.input_var} = {json.dumps(content)};
+                    {self._param.code}
+                }}
+            """
             
-            return MessagePass.be_output(json.dumps(result_data))
+            # 创建JavaScript运行时
+            ctx = execjs.compile(js_context)
+            
+            # 执行代码并获取结果
+            try:
+                result = ctx.call("execute")
+                return MessagePass.be_output(result)
+            except execjs.RuntimeError as e:
+                error_msg = "106"  # JavaScript执行错误
+                logging.error(f"{error_msg}: JavaScript execution error - {str(e)}")
+                return MessagePass.be_output(error_msg)
             
         except Exception as e:
             error_msg = "105"  # 发生意外错误
